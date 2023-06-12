@@ -2,15 +2,15 @@ import csv
 from bs4 import BeautifulSoup
 import requests
 
-Product_Names = []
-Product_Images = []
-Product_Prices = []
+List_A = []
+List_B = []
+List_C = []
 
 # Start the index from 1
 index = 1
 
-for page_number in range(1, 4):
-    url = f"https://www.f2parts.com/collection/hydrogel?page={page_number}"
+for page_number in range(,):
+    url = f"?page={page_number}"
     source = requests.get(url).text
     soup = BeautifulSoup(source, 'html.parser')
 
@@ -26,17 +26,17 @@ for page_number in range(1, 4):
             Product_Images.append(Product_Image)
 
             # Add the index to the product information
-            Product_Names[-1] = f"{index}. {Product_Names[-1]}"
+            Product_Names[-1] = f"{index}. {List_A [-1]}"
             index += 1
 
 # Preparing the data for writing to CSV
 data = list(zip(Product_Names, Product_Prices, Product_Images))
 
 # Writing the data to a CSV file
-filename = 'Hydrogel.csv'
+filename = '.csv'
 with open(filename, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(['Product Name', 'Product Price', 'Product Image'])
+    writer.writerow(['List A', 'List B', 'List C'])
     writer.writerows(data)
 
 print(f"Data was scraped successfully and saved in {filename}")
