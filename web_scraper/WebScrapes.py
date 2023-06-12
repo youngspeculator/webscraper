@@ -9,8 +9,8 @@ Product_Prices = []
 # Start the index from 1
 index = 1
 
-for page_number in range(1, 87):
-    url = f"https://www.f2parts.com/collection/glass?page={page_number}"
+for page_number in range(1, 3):
+    url = f"https://www.f2parts.com/collection/realme-vivo?page={page_number}"
     source = requests.get(url).text
     soup = BeautifulSoup(source, 'html.parser')
 
@@ -33,7 +33,7 @@ for page_number in range(1, 87):
 data = list(zip(Product_Names, Product_Prices, Product_Images))
 
 # Writing the data to a CSV file
-filename = 'Glass.csv'
+filename = 'Realme-Vivo.csv'
 with open(filename, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Product Name', 'Product Price', 'Product Image'])
